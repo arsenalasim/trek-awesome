@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <header-banner></header-banner>
-    <product-list></product-list>
+    <header-section></header-section>
+    <product-section></product-section>
     <info-section></info-section>
-    <my-footer></my-footer>
+    <footer-section></footer-section>
 
   </div>
 </template>
