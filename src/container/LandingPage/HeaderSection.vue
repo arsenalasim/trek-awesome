@@ -1,6 +1,6 @@
 <template>
     <div id="head">
-        This is header.
+        This is Header-Section.
 
     </div>
     

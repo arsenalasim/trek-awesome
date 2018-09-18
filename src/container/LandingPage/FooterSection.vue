@@ -1,6 +1,6 @@
 <template>
     <div id="foot">
-        This is footer.
+        This is Footer-Section.
 
     </div>
     

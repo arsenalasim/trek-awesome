@@ -1,6 +1,6 @@
 <template>
     <div id="info">
-        This is InfoSection.
+        This is Info-Section.
 
     </div>
     

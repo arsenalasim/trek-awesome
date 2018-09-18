@@ -1,6 +1,6 @@
 <template>
     <div id="product">
-        This is Product List.
+        This is Product-Section.
 
     </div>
     
