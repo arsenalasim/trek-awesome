@@ -1,6 +1,7 @@
 <template>
     <div id="head">
         <accounts></accounts>
+        <my-menu></my-menu>
         
 
     </div>
@@ -9,10 +10,12 @@
 
 <script>
     import Accounts from '../../components/Header/Accounts.vue';
+    import MyMenu from '../../components/Header/MyMenu.vue';
 
     export default {
         components:{
-            Accounts
+            Accounts,
+            MyMenu
         }
     }
     
@@ -20,8 +23,14 @@
 
 <style scoped>
 #head{
-    min-height: 500px;
-    background-color: #9dedbb;
+    height: 550px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* background-color: #9dedbb; */
+    background-image: url('../../assets/bg-image3.jpg')
+    
 }
 
 
