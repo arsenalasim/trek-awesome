@@ -1,12 +1,20 @@
 <template>
     <div id="head">
-        This is Header-Section.
+        <accounts></accounts>
+        
 
     </div>
     
 </template>
 
 <script>
+    import Accounts from '../../components/Header/Accounts.vue';
+
+    export default {
+        components:{
+            Accounts
+        }
+    }
     
 </script>
 

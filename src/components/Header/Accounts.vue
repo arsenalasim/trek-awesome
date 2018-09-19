@@ -1,8 +1,8 @@
 <template>
     <div id="#accounts">
-        <p>gdfjhfcsdhfkshfkusdjhdkusagc sdfgh sdkg </p>
+        
         <div id="logo">
-            <img :src="image" alt="compant logo">
+            <img :src="image" alt="company logo">
             
         </div>
         <div id="account-options">
@@ -21,5 +21,13 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    img{
+        height: 100px;
+        width: 100px;
+    }
+</style>
+
 
 
