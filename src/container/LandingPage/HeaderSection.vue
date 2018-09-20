@@ -3,6 +3,7 @@
         <accounts></accounts>
         <my-menu></my-menu>
         <carousel></carousel>
+        <services></services>
         
 
     </div>
@@ -13,12 +14,14 @@
     import Accounts from '../../components/Header/Accounts.vue';
     import MyMenu from '../../components/Header/MyMenu.vue';
     import Carousel from '../../components/Header/Carousel.vue';
+    import Services from '../../components/Header/Services.vue';
 
     export default {
         components:{
             Accounts,
             MyMenu,
-            Carousel
+            Carousel,
+            Services
         }
     }
     

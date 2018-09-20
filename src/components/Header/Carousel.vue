@@ -1,6 +1,6 @@
 <template>
     <div id="carousel">
-        <img src="../../assets/bg-image3.jpg" alt="">
+        <img src="../../assets/carousel5.jpg" alt="">
 
     </div>
     
@@ -16,7 +16,7 @@ export default {
 
     #carousel{
         height: 450px;
-        width: 90%;       
+        width: 100%;       
     }
 
     #carousel img{

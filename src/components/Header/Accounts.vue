@@ -29,18 +29,19 @@ export default {
 <style scoped>
 
     img{
-        height: 50px;
-        width: 100px;
-        margin: 5px;
+        height: 35px;
+        width: 80px;
+        margin: 5px 5px 0 5px;
     }
 
     #accounts{
-        background-color: #cccccc;
+        background-color: #0579a7;
+        
         display: flex;
         justify-content: space-between;
         margin-top: 0px;
-        height: 60px;
-        width: 90%;
+        height: 40px;
+        width: 100%;
     }
 
     #logo{
@@ -48,7 +49,8 @@ export default {
     }
 
     #logo h2 {
-        margin-left: 10px;
+        margin: 5px 5px 5px 10px;
+        color:#ffffff;
     }
 
     #account-options{
@@ -62,16 +64,17 @@ export default {
         width:33.33%;
         height: 100%;
         box-sizing: border-box;
-        background-image: linear-gradient(to right,#cbcccc,#babbbb);
+        background-image: linear-gradient(to right,#0579a7,#1988b4);
         border-style: none;
-        color:#414b4f;
-        padding: 25px 20px;
+        color:#dddddd;
+        padding: 10px 20px;
         margin: 0;
             
     }
     p.button:hover{
-        background-image:linear-gradient(to bottom,#cbcccc,#babbbb);
+        background-image:linear-gradient(to bottom,#1988b4,#3aa3cc);
         color: white;
+        cursor: pointer;
     }
     
 </style>

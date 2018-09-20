@@ -1,7 +1,7 @@
 <template>
     <div id="menu">
         <p><img :src="home" alt="home button">Home</p>
-        <p><img :src="category" alt="category button">Categories</p>
+        <p><img :src="category" alt="category button" style="padding-left:0;">Categories</p>
         <div>
             <img :src="search" alt="search icon">
             <input type="text" placeholder="Search..." >
@@ -18,20 +18,20 @@
 </template>
 
 <script>
-import cart3 from '../../assets/cart3.png'
-import wish7 from '../../assets/wish7.png'
-import home4 from '../../assets/home4.png'
-import category4 from '../../assets/category4.png'
-import search6 from '../../assets/search6.png'
+import cart2 from '../../assets/cart2.png'
+import wish8 from '../../assets/wish8.png'
+import home12 from '../../assets/home12.png'
+import category7 from '../../assets/category7.png'
+import search2 from '../../assets/search2.png'
 
 export default {
     data:function(){
         return{
-            home: home4,
-            category: category4,
-            cart: cart3,
-            wish: wish7,
-            search: search6
+            home: home12,
+            category: category7,
+            cart: cart2,
+            wish: wish8,
+            search: search2
 
         }
     }
@@ -44,29 +44,38 @@ export default {
         display:flex;
         justify-content: space-between;
         align-items: center;
-        height: 50px;
-        width: 90%;
-        background: #93c2d6;
+        height: 60px;
+        width: 100%;
+        background: #02c39a;
     }
 
     #menu img{
-        height: 40px;
-        width:40px;
+        height: 30px;
+        width:35px;
+        padding: 0 10px;
     }
 
     #menu p{
-        background-color: #c3e1ee;
-        color: #143996;
-        border-radius: 20px;
+        background:#02c39a;
+        color: #eeeeee;
+        font-weight: bold;
         display:flex;
         align-items: center;
         width:10%;
         margin: 0 15px;
+        transition: transform 0.2s;
+    }
+
+    #menu p:hover{
+        transform:scale(1.2);
+        background-image:linear-gradient(to right,#02c39a,#31dfb9);
+        cursor: pointer;
+        color:white;
     }
 
     #menu div{
-        background-color: #c3e1ee;
-        border-radius: 20px;
+        background-color: #dedede;
+        
         display:flex;
         align-items: stretch;
        
@@ -75,12 +84,11 @@ export default {
     }
 
     #menu input[type="text"]{
-        background-color:#c3e1ee;
+        background-color:#dedede;
         border-style: none;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
+        
         width:90%;
-        height: 30px;
+        height: 20px;
         font-size: 18px;
         padding:5px;
        

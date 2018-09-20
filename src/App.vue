@@ -12,6 +12,6 @@
   text-align: center;
   color: #2c3e50;
   background-color: #e6e4fe;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 </style>
