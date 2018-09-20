@@ -31,7 +31,7 @@
     flex-direction: column;
     align-items: center;
 
-     background-color:#d9eff9;
+     background-color:white;
     /* background-image: url('../../assets/bg-image3.jpg'); */
    
 }

@@ -7,9 +7,9 @@
             
         </div>
         <div id="account-options">
-            <p class="button">My account</p>
-            <p class="button">Sign up</p>
-            <p class="button">Sign in</p>
+            <p class="button">ACCOUNT</p>
+            <p class="button">SIGN UP</p>
+            <p class="button">SIGN IN</p>
 
         </div>
     </div>
@@ -35,6 +35,7 @@ export default {
     }
 
     #accounts{
+        background-color: #cccccc;
         display: flex;
         justify-content: space-between;
         margin-top: 0px;
@@ -53,21 +54,24 @@ export default {
     #account-options{
         width: 25%;
         display:flex;
-        justify-content: space-around;
+        height: 100%;
         align-items: center;
     }
 
     .button{
-        background-color: #93c2d6;
-        border-radius: 5px;
-        color:#143996;
-        padding: 10px 20px;
-        margin: 0px auto;
+        width:33.33%;
+        height: 100%;
+        box-sizing: border-box;
+        background-image: linear-gradient(to right,#cbcccc,#babbbb);
+        border-style: none;
+        color:#414b4f;
+        padding: 25px 20px;
+        margin: 0;
             
     }
     p.button:hover{
-        background-color: #143996;
-        color: #93c2d6;
+        background-image:linear-gradient(to bottom,#cbcccc,#babbbb);
+        color: white;
     }
     
 </style>

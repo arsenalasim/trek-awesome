@@ -20,15 +20,15 @@
 <script>
 import cart3 from '../../assets/cart3.png'
 import wish7 from '../../assets/wish7.png'
-import home10 from '../../assets/home10.png'
-import category5 from '../../assets/category5.png'
+import home4 from '../../assets/home4.png'
+import category4 from '../../assets/category4.png'
 import search6 from '../../assets/search6.png'
 
 export default {
     data:function(){
         return{
-            home: home10,
-            category: category5,
+            home: home4,
+            category: category4,
             cart: cart3,
             wish: wish7,
             search: search6
