@@ -47,12 +47,15 @@ export default {
         height: 60px;
         width: 100%;
         background: #02c39a;
+        position: sticky;
+        top:0px;
     }
 
     #menu img{
         height: 30px;
         width:35px;
         padding: 0 10px;
+        color: white;
     }
 
     #menu p{

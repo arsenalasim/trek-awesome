@@ -29,7 +29,7 @@
 
 <style scoped>
 #head{
-    height: 600px;
+    height: 100%;
     display:flex;
     flex-direction: column;
     align-items: center;

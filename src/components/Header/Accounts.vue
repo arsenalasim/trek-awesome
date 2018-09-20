@@ -31,7 +31,8 @@ export default {
     img{
         height: 35px;
         width: 80px;
-        margin: 5px 5px 0 5px;
+        padding: 5px 5px 0 5px;
+        background: #1988b4;
     }
 
     #accounts{
