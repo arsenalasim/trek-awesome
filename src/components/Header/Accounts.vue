@@ -9,19 +9,27 @@
         <div id="account-options">
             <p class="button">ACCOUNT</p>
             <p class="button">SIGN UP</p>
-            <p class="button">SIGN IN</p>
+            <p class="button" onclick="document.getElementById('signin').style.display='block'">SIGN IN</p>
 
         </div>
+        <signin-modal id="signin"></signin-modal>
+
     </div>
 </template>
 
 <script>
-import logo3 from '../../assets/logo3.png'
+import logo3 from '../../assets/logo3.png';
+import SigninModal from './SigninModal.vue';
+
 export default {
     data:function(){
         return{
             image:logo3
         }
+    },
+
+    components:{
+        SigninModal
     }
 }
 </script>
