@@ -1,8 +1,11 @@
 <template>
     <div id="menu">
         <p><img :src="home" alt="home button">Home</p>
-        <p><img :src="category" alt="category button" style="padding-left:0;">Categories</p>
-        <div>
+        <div id="dropdown">
+            <p id="categorybtn"><img :src="category" alt="category button" style="padding-left:0;">Categories</p>
+            <category-dropdown class="dropdown-content"></category-dropdown>
+        </div>
+        <div id="searchbar">
             <img :src="search" alt="search icon">
             <input type="text" placeholder="Search..." >
         </div>
@@ -23,6 +26,7 @@ import wish8 from '../../assets/wish8.png'
 import home12 from '../../assets/home12.png'
 import category7 from '../../assets/category7.png'
 import search2 from '../../assets/search2.png'
+import CategoryDropdown from './CategoryDropdown.vue'
 
 export default {
     data:function(){
@@ -34,6 +38,10 @@ export default {
             search: search2
 
         }
+    },
+
+    components:{
+        CategoryDropdown
     }
 }
 </script>
@@ -47,6 +55,9 @@ export default {
         height: 60px;
         width: 100%;
         background: #02c39a;
+        /* background-color: #0579a7; */
+        /* background: #48639c; */
+        
         position: sticky;
         top:0px;
     }
@@ -60,23 +71,40 @@ export default {
 
     #menu p{
         background:#02c39a;
+        /* background: #48639c; */
+        /* background-color: #0579a7; */
         color: #eeeeee;
         font-weight: bold;
         display:flex;
         align-items: center;
         width:10%;
-        margin: 0 15px;
+        margin: 0 10px;
         transition: transform 0.2s;
     }
 
+    #dropdown p{
+         background:#02c39a;
+        /* background: #48639c; */
+        /* background-color: #0579a7; */
+        color: #eeeeee;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        width:100%;
+        margin: 0 15px;
+        transition: transform 0.2s;
+
+    }
+
     #menu p:hover{
-        transform:scale(1.2);
-        background-image:linear-gradient(to right,#02c39a,#31dfb9);
+        transform:scale(1.1);
+        /* background-image:linear-gradient(to right,#0579a7,#268eb8); */
+        background-image:linear-gradient(to right,#02c39a,#34d6b3);
         cursor: pointer;
         color:white;
     }
 
-    #menu div{
+    #searchbar{
         background-color: #dedede;
         
         display:flex;
@@ -98,6 +126,27 @@ export default {
        
       
     }
+
+    #dropdown p{
+        overflow: hidden;
+       
+    }
+
+    .dropdown-content{
+        display:none;
+        position: absolute;
+        z-index: 1;
+        width:200px;
+        color: #005694;
+    }
+
+    #dropdown:hover .dropdown-content{
+        display:block;
+        background:rgba(200,200,200,0.7);
+
+        
+    }
+
 
 </style>
 
