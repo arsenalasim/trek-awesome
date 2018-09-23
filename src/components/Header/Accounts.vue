@@ -8,10 +8,11 @@
         </div>
         <div id="account-options">
             <p class="button">ACCOUNT</p>
-            <p class="button">SIGN UP</p>
+            <p class="button" onclick="document.getElementById('signup').style.display='block'">SIGN UP</p>
             <p class="button" onclick="document.getElementById('signin').style.display='block'">SIGN IN</p>
 
         </div>
+        <signup-modal id="signup"></signup-modal>
         <signin-modal id="signin"></signin-modal>
 
     </div>
@@ -20,6 +21,7 @@
 <script>
 import logo3 from '../../assets/logo3.png';
 import SigninModal from './SigninModal.vue';
+import SignupModal from './SignupModal.vue';
 
 export default {
     data:function(){
@@ -29,7 +31,8 @@ export default {
     },
 
     components:{
-        SigninModal
+        SigninModal,
+        SignupModal
     }
 }
 </script>

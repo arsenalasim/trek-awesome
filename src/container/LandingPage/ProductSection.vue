@@ -1,12 +1,21 @@
 <template>
     <div id="product">
-        This is Product-Section.
+        <product-menu></product-menu>
+        
 
     </div>
     
 </template>
 
 <script>
+    import ProductMenu from '../../components/ProductList/ProductMenu.vue';
+
+    export default {
+        components:{
+            ProductMenu
+        }
+
+    }
     
 </script>
 
@@ -14,5 +23,6 @@
     #product{
         min-height: 700px;
         background-color: #a1a8ee;
+        margin:0;
     }
 </style>

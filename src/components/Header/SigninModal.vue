@@ -15,7 +15,7 @@
                  <input type="text" placeholder="Enter username" name="username" required>
 
                  <label for="password">Password : </label>
-                 <input type="text" placeholder="Enter password" name="password" required>
+                 <input type="password" placeholder="Enter password" name="password" required>
 
                  <button type="submit">Submit</button>
                  <label>
@@ -122,7 +122,7 @@ export default {
         background-color: #fefefe;
         margin:5% auto 15% auto;
         border: 1px solid #888;
-        width: 80%;
+        width: 40%;
         height: auto;
     }
 

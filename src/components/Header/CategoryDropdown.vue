@@ -38,7 +38,7 @@ export default {
     }
 
     ul li:hover{
-        background:#5bdabe;
+        background:#02c39a;
         opacity: 0.9;
         color:white;
         transform: scale(1.2);

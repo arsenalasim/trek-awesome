@@ -6,7 +6,7 @@
             <category-dropdown class="dropdown-content"></category-dropdown>
         </div>
         <div id="searchbar">
-            <img :src="search" alt="search icon">
+            <img :src="search" alt="search icon" style="height:22px; width:22px; padding:5px;">
             <input type="text" placeholder="Search..." >
         </div>
         <p>
@@ -25,7 +25,7 @@ import cart2 from '../../assets/cart2.png'
 import wish8 from '../../assets/wish8.png'
 import home12 from '../../assets/home12.png'
 import category7 from '../../assets/category7.png'
-import search2 from '../../assets/search2.png'
+import search7 from '../../assets/search7.png'
 import CategoryDropdown from './CategoryDropdown.vue'
 
 export default {
@@ -35,7 +35,7 @@ export default {
             category: category7,
             cart: cart2,
             wish: wish8,
-            search: search2
+            search: search7
 
         }
     },
@@ -66,7 +66,9 @@ export default {
         height: 30px;
         width:35px;
         padding: 0 10px;
-        color: white;
+        
+        /* filter: invert(100%); */
+        filter: invert(28%) sepia(54%) saturate(1047%) hue-rotate(157deg) brightness(100%) contrast(98%);
     }
 
     #menu p{
@@ -142,7 +144,7 @@ export default {
 
     #dropdown:hover .dropdown-content{
         display:block;
-        background:rgba(200,200,200,0.7);
+        background:rgba(200,200,200,0.8);
 
         
     }
