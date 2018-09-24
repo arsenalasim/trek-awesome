@@ -57,7 +57,8 @@ export default {
         height: 50px;
         width: 60px;
         padding: 0 15px;
-        filter: invert(28%) sepia(54%) saturate(1047%) hue-rotate(157deg) brightness(100%) contrast(98%);
+        /* filter: invert(28%) sepia(54%) saturate(1047%) hue-rotate(157deg) brightness(100%) contrast(98%); */
+        z-index: inherit;
     }
 
 </style>

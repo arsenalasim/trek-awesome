@@ -39,5 +39,7 @@ export default {
     height: auto;
     background-color: #7a8cde;
   }
+
+ 
 </style>
 

@@ -84,6 +84,10 @@ export default {
         margin: 0;
             
     }
+
+    p{
+        font-size: 14px;
+    }
     p.button:hover{
         background-image:linear-gradient(to bottom,#748ec7,#8aa3d8);
         color: white;

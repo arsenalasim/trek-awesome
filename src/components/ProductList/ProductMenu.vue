@@ -1,6 +1,6 @@
 <template>
     <div id="product-menu">
-        <ul style="margin-top:0;">
+        <ul>
             <li v-for="item in menuTitle" :key="item">{{item}}</li>
         </ul>
     </div>    
@@ -28,13 +28,25 @@ export default {
         width: 100%;
         background:#05668d; 
         margin: 0;
+        display: flex;
+         align-items: center;
 
     }
     #product-menu ul{
         display: flex;
-        list-style-type: disc;
-        margin-top:0;
+        list-style-type: none;
+        margin:0;
+        padding:0 0 0 10px;
+        justify-content: flex-start;
+        align-items: center;
+       
         
+    }
+
+    ul li{
+         list-style-type: none;
+        padding: 10px 10px;
+        border-right: solid 2px #02c39a;
     }
 
 </style>

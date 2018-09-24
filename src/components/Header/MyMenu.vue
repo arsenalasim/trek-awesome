@@ -13,7 +13,7 @@
          <img :src="wish" alt="wish list"> <span>Wish List</span> 
         </p>
         <p>
-        <img :src="cart" alt="cart"><span> My Cart</span>
+        <span id="token">{{count}}</span><img :src="cart" alt="cart"><span>Cart</span>
         </p>
 
     </div>
@@ -35,7 +35,8 @@ export default {
             category: category7,
             cart: cart2,
             wish: wish8,
-            search: search7
+            search: search7,
+            count:0
 
         }
     },
@@ -82,6 +83,16 @@ export default {
         width:10%;
         margin: 0 10px;
         transition: transform 0.2s;
+    }
+
+    #token{
+        height: 20px;
+        width: 20px;
+        color:white;
+        background: lightsalmon;
+        border-radius:50%;
+        padding-top: 2px;
+      
     }
 
     #dropdown p{
