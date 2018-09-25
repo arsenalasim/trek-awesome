@@ -12,9 +12,11 @@
         <p>
          <img :src="wish" alt="wish list"> <span>Wish List</span> 
         </p>
-        <p>
+        <p onclick="document.getElementById('cart').style.display='block'">
         <span id="token">{{count}}</span><img :src="cart" alt="cart"><span>Cart</span>
         </p>
+
+        <cart-modal id="cart"></cart-modal>
 
     </div>
     
@@ -27,6 +29,7 @@ import home12 from '../../assets/home12.png'
 import category7 from '../../assets/category7.png'
 import search7 from '../../assets/search7.png'
 import CategoryDropdown from './CategoryDropdown.vue'
+import CartModal from './CartModal.vue';
 
 export default {
     data:function(){
@@ -42,8 +45,14 @@ export default {
     },
 
     components:{
-        CategoryDropdown
-    }
+        CategoryDropdown,
+        CartModal
+    },
+     created(){
+            this.$eventBus.$on('increase-count',()=>{
+                this.count+=1;
+            });
+        }
 }
 </script>
 
@@ -55,7 +64,8 @@ export default {
         align-items: center;
         height: 60px;
         width: 100%;
-        background: #02c39a;
+        background: #7eb5cc;
+        /* background: #16d6ad; */
         /* background-color: #0579a7; */
         /* background: #48639c; */
         
@@ -73,9 +83,11 @@ export default {
     }
 
     #menu p{
-        background:#02c39a;
+        /* background: #16d6ad; */
+        /* background:#02c39a; */
         /* background: #48639c; */
         /* background-color: #0579a7; */
+        background: #7eb5cc;
         color: #eeeeee;
         font-weight: bold;
         display:flex;
@@ -96,11 +108,13 @@ export default {
     }
 
     #dropdown p{
-         background:#02c39a;
+         /* background:#16d6ad; */
         /* background: #48639c; */
         /* background-color: #0579a7; */
+        background: #7eb5cc;
         color: #eeeeee;
         font-weight: bold;
+
         display: flex;
         align-items: center;
         width:100%;
@@ -112,7 +126,7 @@ export default {
     #menu p:hover{
         transform:scale(1.1);
         /* background-image:linear-gradient(to right,#0579a7,#268eb8); */
-        background-image:linear-gradient(to right,#02c39a,#34d6b3);
+        background-image:linear-gradient(to right,#7eb5cc,#acd6e7);
         cursor: pointer;
         color:white;
     }
@@ -155,7 +169,7 @@ export default {
 
     #dropdown:hover .dropdown-content{
         display:block;
-        background:rgba(200,200,200,0.8);
+        background:rgba(220,220,220,0.9);
 
         
     }

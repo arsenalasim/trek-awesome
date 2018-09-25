@@ -1,7 +1,7 @@
 <template>
     <div id="dropdown">
         <ul>
-            <li v-for="item in dropdownItems" :key="item">{{item}}</li>
+            <li v-for="(item,index) in dropdownItems" :key="item" v-on:click="sendCategory(index); scrollWindow();">{{item}}</li>
         </ul>
 
     </div>
@@ -20,6 +20,16 @@ export default {
 
             ]
         }
+    },
+    methods:{
+        sendCategory:function(i){
+            this.$eventBus.$emit('get-category',i);
+        },
+
+        scrollWindow:function(){
+           
+            window.scrollTo(0,550);
+        }
     }
     
 }
@@ -31,6 +41,7 @@ export default {
         list-style-type: none;
          margin:0;
         padding: 15px 15px;
+        font-weight: bold;
     }
     ul{
         margin:0;
@@ -38,7 +49,7 @@ export default {
     }
 
     ul li:hover{
-        background:#02c39a;
+        background:#6fb6d4;
         opacity: 0.9;
         color:white;
         transform: scale(1.2);

@@ -5,7 +5,7 @@
         <img id="product-image" :src="imageurl" alt="product image">
         <div id="card-buttons">
             <button id="wish"><img src="../../assets/wish9.png" alt="heart"></button>
-            <button id="cart"><img src="../../assets/cart10.png" alt="cart"></button>
+            <button id="cart" @click="increaseCount()"><img src="../../assets/cart10.png" alt="cart"></button>
 
         </div>
         <p id="price">Rs: {{price}}</p>
@@ -31,13 +31,18 @@ export default {
         'description',
         'price',
         'imageurl'
-    ]
+    ],
 
     //, methods:{
     //     getImageUrl(){
     //         return this.myimage
     //     }
     // }
+    methods:{
+        increaseCount:function(){
+            this.$eventBus.$emit('increase-count');
+        }
+    }
     
 }
 </script>
@@ -54,7 +59,7 @@ export default {
         width: 20%;
         /* height: 350px; */
         border: none;
-        box-shadow: 0 0 15px 4px #a7b4b1;
+        box-shadow: 0 0 10px 3px #b1b6b5;
         background: #c5dce6;
         display:flex;
         flex-direction: column;

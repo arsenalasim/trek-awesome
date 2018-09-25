@@ -46,7 +46,7 @@ export default {
     ul li{
          list-style-type: none;
         padding: 10px 10px;
-        border-right: solid 2px #02c39a;
+        border-right: solid 2px #7eb5cc;
     }
 
 </style>

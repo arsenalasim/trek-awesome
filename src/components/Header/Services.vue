@@ -40,7 +40,8 @@ export default {
     #service{
         height: 50px;
         width: 100%;
-        background-color: #02c39a;
+        /* background-color: #16d6ad; */
+        background: #7eb5cc;
         display: flex;
         justify-content: space-around;
     }

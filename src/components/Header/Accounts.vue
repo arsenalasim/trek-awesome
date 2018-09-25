@@ -44,12 +44,14 @@ export default {
         width: 80px;
         padding: 5px 5px 0 5px;
         
-        background: #6a7fac;
+        /* background: #798db9; */
+        background: #05668d;
     }
 
     #accounts{
         /* background-color: #0579a7; */
-         background: #6a7fac;
+         /* background: #798db9; */
+        background: #05668d;
         display: flex;
         justify-content: space-between;
         margin-top: 0px;
@@ -77,7 +79,7 @@ export default {
         width:33.33%;
         height: 100%;
         box-sizing: border-box;
-        background-image: linear-gradient(to right,#6a7fac,#788ab4);
+        background-image: linear-gradient(to right,#05668d,#1182af);
         border-style: none;
         color:#dddddd;
         padding: 10px 20px;
@@ -89,7 +91,7 @@ export default {
         font-size: 14px;
     }
     p.button:hover{
-        background-image:linear-gradient(to bottom,#748ec7,#8aa3d8);
+        background-image:linear-gradient(to bottom,#1182af,#25a3d4);
         color: white;
         cursor: pointer;
     }

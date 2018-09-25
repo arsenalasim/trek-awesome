@@ -28,6 +28,7 @@ export default {
     FooterSection
 
   }
+  
 }
 </script>
 
