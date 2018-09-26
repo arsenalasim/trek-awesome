@@ -24,12 +24,14 @@ export default {
 <style scoped>
 
     #product-menu{
-        height: 50px;
+        height: 40px;
         width: 100%;
         background:#05668d; 
         margin: 0;
         display: flex;
          align-items: center;
+         /* position:sticky;
+         top:50px; */
 
     }
     #product-menu ul{
@@ -47,6 +49,7 @@ export default {
          list-style-type: none;
         padding: 10px 10px;
         border-right: solid 2px #7eb5cc;
+        font-size: 14px;
     }
 
 </style>

@@ -62,7 +62,7 @@ export default {
         display:flex;
         justify-content: space-between;
         align-items: center;
-        height: 60px;
+        height: 50px;
         width: 100%;
         background: #7eb5cc;
         /* background: #16d6ad; */
@@ -71,11 +71,12 @@ export default {
         
         position: sticky;
         top:0px;
+        z-index: 1;
     }
 
     #menu img{
-        height: 30px;
-        width:35px;
+        height: 22px;
+        width:25px;
         padding: 0 10px;
         
         /* filter: invert(100%); */
@@ -89,7 +90,7 @@ export default {
         /* background-color: #0579a7; */
         background: #7eb5cc;
         color: #eeeeee;
-        font-weight: bold;
+        /* font-weight: bold; */
         display:flex;
         align-items: center;
         width:10%;
@@ -113,7 +114,7 @@ export default {
         /* background-color: #0579a7; */
         background: #7eb5cc;
         color: #eeeeee;
-        font-weight: bold;
+        /* font-weight: bold; */
 
         display: flex;
         align-items: center;

@@ -1,11 +1,14 @@
 <template>
     <div id="product-card">
-
+        <div id="selected" :style="{display:displayScreen}">
+            <p>Added to the cart</p>
+            <button @click="removeCard()">Remove</button>
+        </div>
         <h2 id="product-title">{{description}}</h2>
         <img id="product-image" :src="imageurl" alt="product image">
         <div id="card-buttons">
             <button id="wish"><img src="../../assets/wish9.png" alt="heart"></button>
-            <button id="cart" @click="increaseCount()"><img src="../../assets/cart10.png" alt="cart"></button>
+            <button id="cart" @click="increaseCount(); selectStatus()"><img src="../../assets/cart10.png" alt="cart"></button>
 
         </div>
         <p id="price">Rs: {{price}}</p>
@@ -23,6 +26,7 @@ export default {
         return{
         //    myimage:"../../assets/jacket1.jpg",
         //    jacket1
+        displayScreen:"none"
 
         }
     
@@ -41,6 +45,14 @@ export default {
     methods:{
         increaseCount:function(){
             this.$eventBus.$emit('increase-count');
+        },
+
+        selectStatus:function(){
+            this.displayScreen="block";
+        },
+
+        removeCard:function(){
+            this.displayScreen="none";
         }
     }
     
@@ -65,12 +77,49 @@ export default {
         flex-direction: column;
         justify-content:center;
         align-items: center;
-         transition: 0.3s;
+        transition: 0.3s;
+        position: relative;
+        
+      
     }
 
     #product-card:hover{
         transform: scale(1.1);
         cursor: pointer;
+    }
+
+    #selected{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+       
+        height:100%;
+        width:100%;
+        box-sizing: border-box;
+        background:rgba(50,50,50,0.6);
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+       padding-top: 60px;
+       /* z-index: 1; */
+
+    }
+
+    #selected button{
+        width:50%;
+        
+        color:white;
+        background:rgb(245, 90, 90);
+        padding:10px;
+        margin:10px;
+        border-style: none;
+        font-size: 18px;
+    }
+
+    #selected button:hover{
+        background: rgb(243, 58, 58);
     }
 
 

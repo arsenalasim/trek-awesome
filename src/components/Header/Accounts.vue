@@ -82,14 +82,13 @@ export default {
         background-image: linear-gradient(to right,#05668d,#1182af);
         border-style: none;
         color:#dddddd;
-        padding: 10px 20px;
+        padding-top: 15px;
         margin: 0;
+        font-size: 11px;
             
     }
 
-    p{
-        font-size: 14px;
-    }
+   
     p.button:hover{
         background-image:linear-gradient(to bottom,#1182af,#25a3d4);
         color: white;
