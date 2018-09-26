@@ -1,6 +1,6 @@
 <template>
-    <div id="cart" class="modal">
-        <span onclick="document.getElementById('cart').style.display='none'" class="close" 
+    <div id="cart" class="modal" :style="{display:displayModal}">
+        <span @click="$emit('close-cart')" class="close" 
          title="Close Modal">&times;</span>
 
          <!-- modal content -->
@@ -11,24 +11,33 @@
              </div>
 
              <div class="container">
-                 <label for="username">Username : </label>
-                 <input type="text" placeholder="Enter username" name="username" required>
+                 <table style="width:80%;">
+                     <tr>
+                         <th>S.N.</th>
+                         <th colspan="2">Items</th>
+                         <th>Quantity</th>
+                         <th>Price</th>
+                         <th>Total</th>
+                     </tr>
+                     <tr v-for="(item,i) in selectedItems" :key="i">
+                         <td>{{i+1}}</td>
+                         <td><img :src='item.imageurl' alt="image" id="product-image"></td>
+                         <td>{{item.name}}</td>
+                         <td class="align-right"><input type="number" v-model="item.quantity" id="quantity"></td>
+                         <td class="align-right">{{item.price}}</td>
+                         <td class="align-right">{{item.price * item.quantity}}</td>
 
-                 <label for="password">Password : </label>
-                 <input type="password" placeholder="Enter password" name="password" required>
+                     </tr>
 
-                 <button type="submit">Submit</button>
-                 <label>
-                     <input type="checkbox" checked="checked" name="remember">Remember me
-                 </label>
+                 </table>
+                
 
              </div>
 
              <div class="container">
-                 <button type="button" onclick="document.getElementById('cart').style.display='none'"
-                 class="cancelbtn">Cancel</button>
+                 <button type="button" @click="$emit('close-cart')" class="cancelbtn">Cancel</button>
 
-                 <span class="psw">Forgot <a href="#">Password ?</a></span>
+                <button type="button" onclick="#" class="chkout">Checkout</button>
 
              </div>
 
@@ -42,21 +51,60 @@
 
 <script>
 export default {
-    
+    data:function(){
+        return{
+            displayValue:"none",
+            selectedItems:[
+                {name:"Jacket-A",quantity:2,price:3250,imageurl:require("../../assets/jacket1.jpg")},
+                {name:"Jacket-C",quantity:1,price:2250,imageurl:require("../../assets/jacket3.jpg")},
+                {name:"Shoes-D",quantity:1,price:3050,imageurl:require("../../assets/shoes4.jpg")},
+                {name:"T-shirt-B",quantity:3,price:1250,imageurl:require("../../assets/tshirt2.jpg")},
+                {name:"Trousers-G",quantity:2,price:2550,imageurl:require("../../assets/trousers7.jpg")}
+            ]
+        }
+    },
+    props:[
+        'displayModal'
+    ]
 }
 </script>
 
 <style scoped>
     body {font-family: Arial, Helvetica, sans-serif;}
 
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
+    table, th, td{
+        border: 1px solid lightskyblue;
+        border-collapse: collapse;
+    }
+
+    table{
+        margin: 5px auto;
+    }
+
+    th,td{
+        padding:10px;
+    }
+
+    .align-right{
+        text-align: right;
+    }
+
+    #product-image{
+        height: 100px;
+        width: 100px;
+    }
+
+    table tr:nth-child(even) .align-right{
+        background-color: #eeeeee;
+    }
+
+    #quantity{
+        height: 100%;
         box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding:0;
+        border: none;
     }
 
     /* Set a style for all buttons */
@@ -83,11 +131,11 @@ export default {
     }
 
         /* Center the image and position the close button */
-    .imgcontainer {
+    /* .imgcontainer {
         text-align: center;
         margin: 24px 0 12px 0;
         position: relative;
-    }
+    } */
 
     .avatar img{
         width: 40%;
@@ -100,13 +148,16 @@ export default {
         text-align: left;
     }
 
-    span.psw {
+    button.chkout {
         float: right;
-        padding-top: 16px;
+        padding:10px 18px;
+        display:block;
+        width:auto;
+        
     }
 
     .modal{
-        display: none;
+        /* display: none; */
         position:fixed;
         z-index: 10;
         top:0;
@@ -122,7 +173,7 @@ export default {
         background-color: #fefefe;
         margin:5% auto 15% auto;
         border: 1px solid #888;
-        width: 40%;
+        width: 80%;
         height: auto;
     }
 

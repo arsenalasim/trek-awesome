@@ -12,11 +12,11 @@
         <p>
          <img :src="wish" alt="wish list"> <span>Wish List</span> 
         </p>
-        <p onclick="document.getElementById('cart').style.display='block'">
+        <p @click="displayCart()">
         <span id="token">{{count}}</span><img :src="cart" alt="cart"><span>Cart</span>
         </p>
 
-        <cart-modal id="cart"></cart-modal>
+        <cart-modal id="cart" :displayModal="displayCartModal" @close-cart="hideCart()" ></cart-modal>
 
     </div>
     
@@ -39,7 +39,8 @@ export default {
             cart: cart2,
             wish: wish8,
             search: search7,
-            count:0
+            count:0,
+            displayCartModal:"none"
 
         }
     },
@@ -48,6 +49,16 @@ export default {
         CategoryDropdown,
         CartModal
     },
+    methods:{
+        displayCart:function(){
+            this.displayCartModal="block";
+        },
+        hideCart:function(){
+            this.displayCartModal="none";
+        }
+        
+    },
+
      created(){
             this.$eventBus.$on('increase-count',()=>{
                 this.count+=1;
@@ -104,7 +115,8 @@ export default {
         color:white;
         background: lightsalmon;
         border-radius:50%;
-        padding-top: 2px;
+        padding: 3px;
+        font-size: 14px;
       
     }
 

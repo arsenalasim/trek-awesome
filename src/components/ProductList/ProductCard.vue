@@ -77,14 +77,14 @@ export default {
         flex-direction: column;
         justify-content:center;
         align-items: center;
-        transition: 0.3s;
+        transition: 0.2s;
         position: relative;
         
       
     }
 
     #product-card:hover{
-        transform: scale(1.1);
+        transform: scale(1.05);
         cursor: pointer;
     }
 
