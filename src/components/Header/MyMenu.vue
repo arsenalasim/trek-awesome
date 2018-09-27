@@ -60,7 +60,7 @@ export default {
     },
 
      created(){
-            this.$eventBus.$on('increase-count',()=>{
+            this.$eventBus.$on('add-to-cart',()=>{
                 this.count+=1;
             });
         }

@@ -13,21 +13,27 @@
              <div class="container">
                  <table style="width:80%;">
                      <tr>
-                         <th>S.N.</th>
+                         <th style="width:40px;">S.N.</th>
                          <th colspan="2">Items</th>
                          <th>Quantity</th>
                          <th>Price</th>
                          <th>Total</th>
+                         <th></th>
                      </tr>
                      <tr v-for="(item,i) in selectedItems" :key="i">
-                         <td>{{i+1}}</td>
-                         <td><img :src='item.imageurl' alt="image" id="product-image"></td>
+                         <td style="width:40px;">{{i+1}}</td>
+                         <td><img :src='item.imageurl' alt="image" class="product-image"></td>
                          <td>{{item.name}}</td>
-                         <td class="align-right"><input type="number" v-model="item.quantity" id="quantity"></td>
+                         <td class="align-right"><input type="number" v-model="item.quantity" class="quantity"></td>
                          <td class="align-right">{{item.price}}</td>
                          <td class="align-right">{{item.price * item.quantity}}</td>
-
+                         <td class="align-right"><button  class="cancelbtn">Remove</button></td>
                      </tr>
+                     <tr>
+                         <td colspan="5">Total : </td>
+                         <td colspan="2">{{total}}</td><button @click="calculateTotal()">calcualte total</button>
+                     </tr>
+                     
 
                  </table>
                 
@@ -55,17 +61,40 @@ export default {
         return{
             displayValue:"none",
             selectedItems:[
-                {name:"Jacket-A",quantity:2,price:3250,imageurl:require("../../assets/jacket1.jpg")},
-                {name:"Jacket-C",quantity:1,price:2250,imageurl:require("../../assets/jacket3.jpg")},
-                {name:"Shoes-D",quantity:1,price:3050,imageurl:require("../../assets/shoes4.jpg")},
-                {name:"T-shirt-B",quantity:3,price:1250,imageurl:require("../../assets/tshirt2.jpg")},
-                {name:"Trousers-G",quantity:2,price:2550,imageurl:require("../../assets/trousers7.jpg")}
-            ]
+                // {name:"Jacket-A",quantity:2,price:3250,imageurl:require("../../assets/jacket1.jpg")},
+                // {name:"Jacket-C",quantity:1,price:2250,imageurl:require("../../assets/jacket3.jpg")},
+                // {name:"Shoes-D",quantity:1,price:3050,imageurl:require("../../assets/shoes4.jpg")},
+                // {name:"T-shirt-B",quantity:3,price:1250,imageurl:require("../../assets/tshirt2.jpg")},
+                // {name:"Trousers-G",quantity:2,price:2550,imageurl:require("../../assets/trousers7.jpg")}
+            ],
+            total:0
         }
     },
     props:[
         'displayModal'
-    ]
+    ],
+    created: function () {
+      this.$eventBus.$on('add-to-cart', this.pushToSelectedItems)
+  },
+  methods: {
+    pushToSelectedItems:function (itemObject) {
+        this.selectedItems.push(itemObject);
+    },
+
+    calculateTotal:function(){
+        var len=this.selectedItems.length;
+        var tot=0;
+        // console.log(this.selectedItems[0]);
+        // console.log(this.selectedItems[0].price);
+        // console.log(parseInt(this.selectedItems[0].price)*this.selectedItems[0].quantity);
+        for(var i=0;i<len;i++){
+            tot+=parseInt(this.selectedItems[i].price)*this.selectedItems[i].quantity;
+        }
+        this.total=tot;
+        
+       
+    }
+  }
 }
 </script>
 
@@ -83,28 +112,34 @@ export default {
 
     th,td{
         padding:10px;
+        width:120px;
     }
 
     .align-right{
         text-align: right;
     }
 
-    #product-image{
+    .product-image{
         height: 100px;
         width: 100px;
     }
 
-    table tr:nth-child(even) .align-right{
+    /* table tr:nth-child(even) .align-right{
         background-color: #eeeeee;
     }
 
-    #quantity{
-        height: 100%;
+    #quantity tr:nth-child(odd) {
+         background:#eeeeee;
+    } */
+
+    .quantity{
+        height: 100px;
         box-sizing: border-box;
         width: 100%;
         margin: 0;
         padding:0;
         border: none;
+       
     }
 
     /* Set a style for all buttons */

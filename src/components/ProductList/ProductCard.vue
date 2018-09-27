@@ -2,13 +2,13 @@
     <div id="product-card">
         <div id="selected" :style="{display:displayScreen}">
             <p>Added to the cart</p>
-            <button @click="removeCard()">Remove</button>
+            <button @click="removeFromCart()">Remove</button>
         </div>
         <h2 id="product-title">{{description}}</h2>
         <img id="product-image" :src="imageurl" alt="product image">
         <div id="card-buttons">
             <button id="wish"><img src="../../assets/wish9.png" alt="heart"></button>
-            <button id="cart" @click="increaseCount(); selectStatus()"><img src="../../assets/cart10.png" alt="cart"></button>
+            <button id="cart" @click="selectStatus(); addToCart();"><img src="../../assets/cart10.png" alt="cart"></button>
 
         </div>
         <p id="price">Rs: {{price}}</p>
@@ -43,16 +43,22 @@ export default {
     //     }
     // }
     methods:{
-        increaseCount:function(){
-            this.$eventBus.$emit('increase-count');
-        },
+        // increaseCount:function(){
+        //     this.$eventBus.$emit('increase-count');
+        // },
 
         selectStatus:function(){
             this.displayScreen="block";
         },
 
-        removeCard:function(){
+        removeFromCart:function(){
             this.displayScreen="none";
+        },
+
+        addToCart:function(){
+            this.$eventBus.$emit('add-to-cart',{name:this.description,quantity:1,price:this.price,imageurl:this.imageurl});
+            // console.log(this.description);
+            // console.log(this.imageurl);
         }
     }
     
