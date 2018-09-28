@@ -2,13 +2,13 @@
     <div id="product-card">
         <div id="selected" :style="{display:displayScreen}">
             <p>Added to the cart</p>
-            <button @click="removeFromCart()">Remove</button>
+            <!-- <button @click="removeFromCart()">Remove</button> -->
         </div>
         <h2 id="product-title">{{description}}</h2>
         <img id="product-image" :src="imageurl" alt="product image">
         <div id="card-buttons">
             <button id="wish"><img src="../../assets/wish9.png" alt="heart"></button>
-            <button id="cart" @click="selectStatus(); addToCart();"><img src="../../assets/cart10.png" alt="cart"></button>
+            <button id="cart" @click=" $emit('toggle-selected'); selectStatus(); addToCart();"><img src="../../assets/cart10.png" alt="cart"></button>
 
         </div>
         <p id="price">Rs: {{price}}</p>
@@ -34,7 +34,8 @@ export default {
     props:[
         'description',
         'price',
-        'imageurl'
+        'imageurl',
+        'selected'
     ],
 
     //, methods:{
@@ -48,18 +49,31 @@ export default {
         // },
 
         selectStatus:function(){
-            this.displayScreen="block";
+           
+            if(this.selected) {
+                this.displayScreen="block";
+            }
+            else{
+                this.displayScreen="none";
+            }
         },
 
-        removeFromCart:function(){
-            this.displayScreen="none";
-        },
+        // removeFromCart:function(){
+        //     this.displayScreen="none";
+        // },
 
         addToCart:function(){
-            this.$eventBus.$emit('add-to-cart',{name:this.description,quantity:1,price:this.price,imageurl:this.imageurl});
+           
+            this.$eventBus.$emit('add-to-cart',{name:this.description,quantity:1,price:this.price,imageurl:this.imageurl,myObj:this});
             // console.log(this.description);
             // console.log(this.imageurl);
         }
+    },
+    created:function(){
+            this.$eventBus.$on("remove-from-cart",(obj)=>{
+                // console.log(obj);
+                obj.displayScreen="none";
+            })
     }
     
 }
@@ -97,18 +111,18 @@ export default {
     #selected{
         display: none;
         position: absolute;
-        top: 0;
+        top: 70%;
         left: 0;
        
-        height:100%;
+        height:30%;
         width:100%;
         box-sizing: border-box;
-        background:rgba(50,50,50,0.6);
-        color: white;
+        background:rgba(80,80,80,0.8);
+        color: rgb(255, 164, 164);
         text-align: center;
         font-weight: bold;
         font-size: 20px;
-       padding-top: 60px;
+       padding-top: 45px;
        /* z-index: 1; */
 
     }

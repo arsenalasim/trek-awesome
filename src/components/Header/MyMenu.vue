@@ -52,6 +52,7 @@ export default {
     methods:{
         displayCart:function(){
             this.displayCartModal="block";
+            this.$eventBus.$emit("calculate-total");
         },
         hideCart:function(){
             this.displayCartModal="none";
@@ -62,6 +63,9 @@ export default {
      created(){
             this.$eventBus.$on('add-to-cart',()=>{
                 this.count+=1;
+            });
+            this.$eventBus.$on('remove-from-cart',()=>{
+                this.count-=1;
             });
         }
 }

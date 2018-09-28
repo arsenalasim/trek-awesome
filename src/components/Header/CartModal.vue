@@ -27,11 +27,24 @@
                          <td class="align-right"><input type="number" v-model="item.quantity" class="quantity"></td>
                          <td class="align-right">{{item.price}}</td>
                          <td class="align-right">{{item.price * item.quantity}}</td>
-                         <td class="align-right"><button  class="cancelbtn">Remove</button></td>
+                         <td class="align-right"><button  class="cancelbtn" @click="removeFromCart(i,item)">Remove</button></td>
                      </tr>
                      <tr>
-                         <td colspan="5">Total : </td>
-                         <td colspan="2">{{total}}</td><button @click="calculateTotal()">calcualte total</button>
+                         <td colspan="4" class="remove-border"></td>
+                         <td colspan="1">Total : </td>
+                         <td colspan="2">{{total}}</td>              
+                     </tr>
+
+                     <tr>
+                         <td colspan="4" class="remove-border"> 13% VAT is imposed as per the recent govt act.</td>
+                         <td colspan="1">VAT : </td>
+                         <td colspan="2">{{vat}}</td>              
+                     </tr>
+
+                     <tr>
+                         <td colspan="4" class="remove-border"></td>
+                         <td colspan="1">Grand-Total : </td>
+                         <td colspan="2">{{grandTotal}}  &nbsp;&nbsp;Rupees only.</td>              
                      </tr>
                      
 
@@ -67,14 +80,18 @@ export default {
                 // {name:"T-shirt-B",quantity:3,price:1250,imageurl:require("../../assets/tshirt2.jpg")},
                 // {name:"Trousers-G",quantity:2,price:2550,imageurl:require("../../assets/trousers7.jpg")}
             ],
-            total:0
+            total:0,
+            vat:0,
+            grandTotal:0
         }
     },
     props:[
         'displayModal'
     ],
     created: function () {
-      this.$eventBus.$on('add-to-cart', this.pushToSelectedItems)
+      this.$eventBus.$on('add-to-cart', this.pushToSelectedItems);
+      this.$eventBus.$on('calculate-total',this.calculateTotal);
+      
   },
   methods: {
     pushToSelectedItems:function (itemObject) {
@@ -91,8 +108,17 @@ export default {
             tot+=parseInt(this.selectedItems[i].price)*this.selectedItems[i].quantity;
         }
         this.total=tot;
+        console.log(this.total);
+        this.vat=(0.13*this.total);
+        console.log(this.vat);
+        this.grandTotal=(this.total+this.vat);
         
        
+    },
+    removeFromCart:function(i,item){
+        this.selectedItems.splice(i,1);
+        this.calculateTotal();
+        this.$eventBus.$emit("remove-from-cart",item.myObj);
     }
   }
 }
@@ -112,7 +138,7 @@ export default {
 
     th,td{
         padding:10px;
-        width:120px;
+        width:16%;
     }
 
     .align-right{
@@ -122,6 +148,10 @@ export default {
     .product-image{
         height: 100px;
         width: 100px;
+    }
+
+    .remove-border{
+        border-style: none;
     }
 
     /* table tr:nth-child(even) .align-right{
