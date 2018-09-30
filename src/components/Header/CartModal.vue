@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div id="cart" class="modal" :style="{display:displayModal}">
         <span @click="$emit('close-cart')" class="close" 
          title="Close Modal">&times;</span>
@@ -24,7 +24,7 @@
                          <td style="width:40px;">{{i+1}}</td>
                          <td><img :src='item.imageurl' alt="image" class="product-image"></td>
                          <td>{{item.name}}</td>
-                         <td class="align-right"><input type="number" v-model="item.quantity" class="quantity"></td>
+                         <td class="align-right"><input type="number" v-model="item.quantity" class="quantity" min="1" max="10" @change="calculateTotal()"></td>
                          <td class="align-right">{{item.price}}</td>
                          <td class="align-right">{{item.price * item.quantity}}</td>
                          <td class="align-right"><button  class="cancelbtn" @click="removeFromCart(i,item)">Remove</button></td>
@@ -80,9 +80,9 @@ export default {
                 // {name:"T-shirt-B",quantity:3,price:1250,imageurl:require("../../assets/tshirt2.jpg")},
                 // {name:"Trousers-G",quantity:2,price:2550,imageurl:require("../../assets/trousers7.jpg")}
             ],
-            total:0,
-            vat:0,
-            grandTotal:0
+            total:0.0,
+            vat:0.0,
+            grandTotal:0.0
         }
     },
     props:[
@@ -100,18 +100,18 @@ export default {
 
     calculateTotal:function(){
         var len=this.selectedItems.length;
-        var tot=0;
+        var tot=0.0;
         // console.log(this.selectedItems[0]);
         // console.log(this.selectedItems[0].price);
         // console.log(parseInt(this.selectedItems[0].price)*this.selectedItems[0].quantity);
         for(var i=0;i<len;i++){
-            tot+=parseInt(this.selectedItems[i].price)*this.selectedItems[i].quantity;
+            tot+=parseFloat(this.selectedItems[i].price)*parseFloat(this.selectedItems[i].quantity);
         }
         this.total=tot;
-        // console.log(this.total);
-        this.vat=(0.13*this.total);
-        // console.log(this.vat);
-        this.grandTotal=(this.total+this.vat);
+        // console.log(tot);
+        this.vat=parseFloat(0.13*this.total);
+      
+        this.grandTotal=parseFloat(this.total+this.vat);
         
        
     },
@@ -172,6 +172,12 @@ export default {
         margin: 0;
         padding:0;
         border: none;
+
+        
+       
+    }
+    input[type="number"]{
+       -webkit-appearance: textfield;
        
     }
 
