@@ -5,7 +5,8 @@
         <div id="cards">
            
                 <product-card v-for="(item,i) in ProductList[cat][name[cat]]" :key="item.title" :description="item.title"
-                 :price="item.price" :imageurl="item.imageurl" :selected="item.selected" v-on:toggle-selected="toggleSelected(cat,i)"></product-card>
+                 :price="item.price" :imageurl="item.imageurl" :selected="item.selected" v-on:toggle-selected="toggleSelected(cat,i)"
+                 :cate="cat" :index="i"></product-card>
         
         </div>
         
@@ -94,6 +95,20 @@
             this.$eventBus.$on('get-category',(i)=>{
                 this.cat=i;
             });
+           this.$eventBus.$on('remove-from-cart',this.toggleSelected);
+           
+        },
+
+        methods:{
+            toggleSelected:function(cat,i){
+                console.log("Item selected is: " +cat + " " +i);
+                console.log("value of 'selected' before click: "+this.ProductList[cat][this.name[cat]][i].selected);
+                this.ProductList[cat][this.name[cat]][i].selected=!(this.ProductList[cat][this.name[cat]][i].selected);
+                
+                
+                console.log("value of 'selected' after click: "+this.ProductList[cat][this.name[cat]][i].selected);
+               
+            }
         }
 
     }

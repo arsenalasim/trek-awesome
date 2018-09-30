@@ -108,9 +108,9 @@ export default {
             tot+=parseInt(this.selectedItems[i].price)*this.selectedItems[i].quantity;
         }
         this.total=tot;
-        console.log(this.total);
+        // console.log(this.total);
         this.vat=(0.13*this.total);
-        console.log(this.vat);
+        // console.log(this.vat);
         this.grandTotal=(this.total+this.vat);
         
        
@@ -118,7 +118,10 @@ export default {
     removeFromCart:function(i,item){
         this.selectedItems.splice(i,1);
         this.calculateTotal();
-        this.$eventBus.$emit("remove-from-cart",item.myObj);
+        console.log("removed this item from the cart: " +item.myObj.description);
+        
+        this.$eventBus.$emit("remove-from-cart",item.myObj.cate,item.myObj.index);
+        
     }
   }
 }

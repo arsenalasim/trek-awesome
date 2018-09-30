@@ -8,7 +8,7 @@
         <img id="product-image" :src="imageurl" alt="product image">
         <div id="card-buttons">
             <button id="wish"><img src="../../assets/wish9.png" alt="heart"></button>
-            <button id="cart" @click=" $emit('toggle-selected'); selectStatus(); addToCart();"><img src="../../assets/cart10.png" alt="cart"></button>
+            <button id="cart" @click=" $emit('toggle-selected');  addToCart();"><img src="../../assets/cart10.png" alt="cart"></button>
 
         </div>
         <p id="price">Rs: {{price}}</p>
@@ -24,10 +24,8 @@
 export default {
     data:function(){
         return{
-        //    myimage:"../../assets/jacket1.jpg",
-        //    jacket1
-        displayScreen:"none"
-
+            
+            
         }
     
     },
@@ -35,28 +33,31 @@ export default {
         'description',
         'price',
         'imageurl',
-        'selected'
+        'selected',
+        'cate',
+        'index'
+        
     ],
+    computed:{
+        displayScreen:{
+            get:function(){
+            if(this.selected){
+                return "block";
+            }else{
+                return "none";
+            }
+        },
+        set:function(val){
+            return val;
+        }
+        }
 
-    //, methods:{
-    //     getImageUrl(){
-    //         return this.myimage
-    //     }
-    // }
+    },
+
     methods:{
         // increaseCount:function(){
         //     this.$eventBus.$emit('increase-count');
         // },
-
-        selectStatus:function(){
-           
-            if(this.selected) {
-                this.displayScreen="block";
-            }
-            else{
-                this.displayScreen="none";
-            }
-        },
 
         // removeFromCart:function(){
         //     this.displayScreen="none";
@@ -65,16 +66,13 @@ export default {
         addToCart:function(){
            
             this.$eventBus.$emit('add-to-cart',{name:this.description,quantity:1,price:this.price,imageurl:this.imageurl,myObj:this});
-            // console.log(this.description);
-            // console.log(this.imageurl);
+            
         }
-    },
-    created:function(){
-            this.$eventBus.$on("remove-from-cart",(obj)=>{
-                // console.log(obj);
-                obj.displayScreen="none";
-            })
     }
+    // ,
+    // created:function(){
+    //         this.$eventBus.$on("remove-from-cart",this.removeFromCart);       
+    // }
     
 }
 </script>
